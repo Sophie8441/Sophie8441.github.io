@@ -1,0 +1,1116 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio-Teletician</title>
+    <meta name="description" content="">
+    <meta name="msapplication-tap-highlight" content="yes" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <!-- Google Web Font -->
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lekton:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!--  Bootstrap 3-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- OWL Carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+
+    <!--  Slider -->
+    <link rel="stylesheet" href="css/jquery.kenburnsy.css">
+
+    <!-- Animate -->
+    <link rel="stylesheet" href="css/animate.css">
+
+    <!-- Web Icons Font -->
+    <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="css/iconmoon.css">
+    <link rel="stylesheet" href="css/et-line.css">
+    <link rel="stylesheet" href="css/ionicons.css">
+
+    <!-- Magnific PopUp -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <!-- Tabs -->
+    <link rel="stylesheet" type="text/css" href="css/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="css/tabstyles.css" />
+
+    <!-- Loader Style -->
+    <link rel="stylesheet" href="css/loader-1.css">
+
+    <!-- Costum Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="favicon.ico">
+
+    <!-- Modernizer & Respond js -->
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script>
+      function resizeToMax(id){
+          myImage = new Image() 
+          var img = document.getElementById(id);
+          myImage.src = img.src; 
+          if(myImage.width / document.body.clientWidth > myImage.height / document.body.clientHeight){
+              img.style.width = "100%";
+          } else {
+              img.style.height = "100%";
+          }
+      }
+		function toggleAccordion(element) {
+		  const content = element.nextElementSibling;
+
+		  // Toggle active class
+		  element.classList.toggle('active');
+
+		  // Expand or collapse the accordion content
+		  if (content.style.maxHeight) {
+			content.style.maxHeight = null;
+		  } else {
+			content.style.maxHeight = content.scrollHeight + "px";
+		  }
+}
+	
+const carouselSlide = document.getElementById('carousel-slide');
+const carouselItems = document.querySelectorAll('.carousel-item');
+
+let currentIndex = 0;
+const totalItems = carouselItems.length;
+const itemWidth = carouselItems[0].clientWidth;
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+  if (currentIndex >= totalItems - 1) currentIndex = -1; // Loop back to the first slide
+  carouselSlide.style.transform = `translateX(${-itemWidth * (++currentIndex)}px)`;
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  if (currentIndex <= 0) currentIndex = totalItems; // Loop back to the last slide
+  carouselSlide.style.transform = `translateX(${-itemWidth * (--currentIndex)}px)`;
+});
+
+// Handle window resizing
+window.addEventListener('resize', () => {
+  const newItemWidth = carouselItems[0].clientWidth;
+  carouselSlide.style.transform = `translateX(${-newItemWidth * currentIndex}px)`;
+});
+
+
+
+
+    </script>
+	
+
+</head>
+<style>
+video {
+  width: 100%;
+  height: auto;
+}
+	
+.text-image-normal {
+  display:flex;
+  align-items: center;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Text Section */
+.text-normal {
+  flex: 1; /* Allows text section to take up space */
+  padding: 20px;
+}
+
+/* Image Section */
+.image-normal {
+  flex: 1; /* Allows image section to take up space */
+}
+
+/* Responsive Styles */
+.image-normal img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+  .text-image-normal {
+    flex-direction: column; /* Stack vertically */
+  }
+
+  .text-normal, .image-normal {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .text-normal {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+}
+	
+	
+	
+
+/* Container */
+.carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 40px auto; /* Added margin for separation */
+  overflow: hidden;
+}
+
+/* Slides container */
+.carousel-slides {
+  display: flex;
+  width: 400%; /* Four slides */
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Slide Layout */
+.carousel-item {
+  display: flex;
+  align-items: center;
+  width: 25%; /* 100% / 4 slides */
+  flex-wrap: wrap;
+}
+
+.text-section {
+  width: 35%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.image-section {
+  width: 55%;
+}
+
+.image-section img {
+  width: 100%;
+  height: auto;
+}
+
+/* Radio buttons hidden */
+input[type="radio"] {
+  display: none;
+}
+
+/* Slide navigation via radio */
+#carousel1-slide1:checked ~ .carousel-slides {
+  transform: translateX(0%);
+}
+
+#carousel1-slide2:checked ~ .carousel-slides {
+  transform: translateX(-25%);
+}
+
+#carousel1-slide3:checked ~ .carousel-slides {
+  transform: translateX(-50%);
+}
+
+#carousel1-slide4:checked ~ .carousel-slides {
+  transform: translateX(-75%);
+}
+
+/* Second Carousel Navigation */
+#carousel2-slide1:checked ~ .carousel-slides {
+  transform: translateX(0%);
+}
+
+#carousel2-slide2:checked ~ .carousel-slides {
+  transform: translateX(-25%);
+}
+
+#carousel2-slide3:checked ~ .carousel-slides {
+  transform: translateX(-50%);
+}
+
+#carousel2-slide4:checked ~ .carousel-slides {
+  transform: translateX(-75%);
+}
+
+/* Thrid Carousel Navigation */
+#carousel3-slide1:checked ~ .carousel-slides {
+  transform: translateX(0%);
+}
+
+#carousel3-slide2:checked ~ .carousel-slides {
+  transform: translateX(-25%);
+}
+#carousel3-slide3:checked ~ .carousel-slides {
+  transform: translateX(-50%);
+}
+	
+/* Forth Carousel Navigation */
+#carousel4-slide1:checked ~ .carousel-slides {
+  transform: translateX(0%);
+}
+
+#carousel4-slide2:checked ~ .carousel-slides {
+  transform: translateX(-25%);
+}
+
+#carousel4-slide3:checked ~ .carousel-slides {
+  transform: translateX(-50%);
+}
+
+#carousel4-slide4:checked ~ .carousel-slides {
+  transform: translateX(-75%);
+}
+
+/* Forth Carousel Navigation */
+#carousel5-slide1:checked ~ .carousel-slides {
+  transform: translateX(0%);
+}
+
+#carousel5-slide2:checked ~ .carousel-slides {
+  transform: translateX(-25%);
+}
+
+#carousel5-slide3:checked ~ .carousel-slides {
+  transform: translateX(-50%);
+}
+
+#carousel5-slide4:checked ~ .carousel-slides {
+  transform: translateX(-75%);
+}
+
+
+
+/* Navigation Dots */
+.carousel-nav {
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+.nav-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color:#E3E3E3;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Highlight active dot */
+#carousel1-slide1:checked ~ .carousel-nav label:nth-child(1),
+#carousel1-slide2:checked ~ .carousel-nav label:nth-child(2),
+#carousel1-slide3:checked ~ .carousel-nav label:nth-child(3),
+#carousel1-slide4:checked ~ .carousel-nav label:nth-child(4) {
+  background-color:#73C0A8;
+}
+
+#carousel2-slide1:checked ~ .carousel-nav label:nth-child(1),
+#carousel2-slide2:checked ~ .carousel-nav label:nth-child(2),
+#carousel2-slide3:checked ~ .carousel-nav label:nth-child(3),
+#carousel2-slide4:checked ~ .carousel-nav label:nth-child(4) {
+  background-color:#73C0A8;
+}
+	
+#carousel3-slide1:checked ~ .carousel-nav label:nth-child(1),
+#carousel3-slide2:checked ~ .carousel-nav label:nth-child(2),
+#carousel3-slide2:checked ~ .carousel-nav label:nth-child(3),
+
+ {
+  background-color:#73C0A8;
+}
+	
+#carousel4-slide1:checked ~ .carousel-nav label:nth-child(1),
+#carousel4-slide2:checked ~ .carousel-nav label:nth-child(2),
+#carousel4-slide3:checked ~ .carousel-nav label:nth-child(3),
+#carousel4-slide4:checked ~ .carousel-nav label:nth-child(4) {
+  background-color:#73C0A8;
+}
+	
+#carousel5-slide1:checked ~ .carousel-nav label:nth-child(1),
+#carousel5-slide2:checked ~ .carousel-nav label:nth-child(2),
+#carousel5-slide3:checked ~ .carousel-nav label:nth-child(3),
+#carousel-slide4:checked ~ .carousel-nav label:nth-child(4) {
+  background-color:#73C0A8;
+}
+	
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .carousel-item {
+    flex-direction: column;
+  }
+
+  .text-section, .image-section {
+    width: 100%;
+  }
+
+  .text-section {
+    padding-bottom: 10px;
+  }
+}
+
+	
+
+
+
+
+
+
+</style>
+<body>
+
+    <!-- Preloader -->
+    <div class="cover"></div>
+
+<div class="header">
+        <div class="container">
+            <div class="logo">                   
+                <a href="index.html">
+
+					<img src="img/Index-homepage/logo-03.png" style="width:80%;">
+
+                </a>
+            </div>
+            
+            <!-- Menu Hamburger (Default) -->
+            <button class="main-menu-indicator" id="open-button">
+                <span class="line"></span>
+            </button>
+            
+            <div class="menu-wrap" style="background-image: url(img/nav_bg.jpg)" >
+                <div class="menu-content">
+                    <div class="navigation">
+                        <span class="pe-7s-close close-menu" id="close-button"></span>
+                        <div class="search-wrap js-ui-search">
+                            <input class="js-ui-text" type="text" placeholder="Search Here...">
+                            <span class="eks js-ui-close"></span>
+                        </div>
+                    </div>
+                    <nav class="menu">
+                        <div class="menu-list">
+                            <ul>
+                                <li class="menu-item-has-children"><a href="index.html">Home</a>
+                                </li>
+                                <li class="menu-item-has-children"><a href="#">About Tzu-Jou</a>
+								<ul class="sub-menu">
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="ExpertiseAreas.html">Vsion & Expertise Areas</a></li>
+                                        <li><a href="PI.html">Professional Identity</a></li>
+								
+								</ul>
+								</li>
+                                <li class="menu-item-has-children"><a href="#">Portfolio</a>
+                                    <ul class="sub-menu">
+
+                                        <li><a href="Portfolio-FMP.html">E-health design system and research</a></li>
+                                        <li><a href="Portfolio-UXUI-sideprokect.html">Business website project</a></li>
+                                        <li><a href="Portfolio-ecommerce.html">E-commerce project</a></li>
+										
+
+                                        <li><a href="Portfolio-AppDesign.html">APP Design</a></li>
+										
+                                        <li><a href="Portfolio-UXUI design.html">A case study of Investment banking app</a></li>
+                                        <li><a href="Portfolio-BehaviorChange.html">AR Implementation</a></li>
+										
+									
+                                        <li><a href="Portfolio-Coasterchat.html">CoasterChat</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <div class="hidden-xs">
+                        <div class="menu-social-media">
+                            <ul>
+
+                            </ul>
+                        </div>
+
+                        <div class="menu-information">
+                            <ul>
+                                <li><span>T:</span> +31623618403</li>
+                                <li><span>E:</span> Sophie8441@gmail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Menu Hamburger (Default) -->
+
+        </div>
+    </div>
+    <div class="container">
+
+
+                <div><span style="with:100%;"><img class="img-responsive center-block" src="img/Project/FMP/visual-13.jpg" width:100%;></span></div>
+
+
+
+    </div>
+    <div class="container">
+        <div class="single-portfolio-wrapper">
+            <div class="row">
+              <div class="col-md-8 col-sm-8">
+                  <h1>Teletician</h1>
+                <h3>A systematic implementation to support personal fruit-intake behaviors in the home-based cardiac rehabilitation context.</h3>
+
+
+                <p>This e-health project was a collaborative effort with Maxima Medisch Centrum in the Netherlands, aimed at addressing the issue of MMC's lack of a digital platform that could effectively track individual patient's food intake and goals. This led to frustration for patients and an increased burden on healthcare providers. Furthermore, the existing website was not user-friendly, particularly for senior patients who required accessible and effective feedback to make informed decisions. Our goal was to create scalable solutions that improved the overall user experience and promoted sustainable health behaviors in the telehealth domain.</p>
+				  
+				<p>Throughout the project, I engaged with multiple stakeholders, including industry experts and users, to gather feedback and co-create MVP. The process involved iterative research, design, and development phases, including agile development of IoT ecosystem solutions with the development team over three sprints. </p>
+				<p>For the final outcomes, the feedback received from behavior change metrics and scale expressed increased confidence in behavior change by an average of 21% by the targer users. The resulting product was presented for its strategic potential to add value to the existing rehabilitation platform, demonstrating its design opportunity for real-world execution.</p>
+              </div>
+                <div class="col-md-3 col-md-offset-1 col-sm-4 col-lg-offset-0 col-lg-4">
+                    <div class="project-information">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Time frame:</td>
+                                    <td>01.2022 - 05.2022</td>
+                                </tr>
+                                <tr>
+                                    <td>Client:</td>
+								<td> <a href="https://www.mmc.nl/" target="_blank">Maxima Medisch Centrum</a></td>
+                                </tr>
+								
+                                <tr>
+                                    <td>Role:</td>
+                                    <td><strong> UX Lead, Project Manager,&nbsp;&nbsp;Concept Developer</strong></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Techniques/Tools:</td>
+                                    <td>User Research (card-sorting, workshop, diary study), Arduino(hardware development), figma(UI development), Rhino (CAD), 3D print, Usability Testing, Data Analysis</td>
+                                   
+									
+                                </tr>
+								
+                                <tr>
+                                    <td>Development track:</td>
+                                    <td><a href="https://github.com/Sophie8441/Teletician">github link</a></td>
+									
+                                </tr>
+								
+
+
+
+                                <tr>
+                                    <td>Share:</td>
+                                    <td>
+                                        <ul class="social-buttons">
+                                            <li><a href="javasript:void(0);" data-social="fb"><i class="iconmoon-facebook"></i></a></li>
+                                            <li>
+                                                <a href="javascript:void(0);" data-social="tw"> <i class="iconmoon-twitter"></i></a>
+                                            </li>
+                                            <li><a href="javascript:void(0);" data-social="pt"><i class="iconmoon-pinterest"></i></a></li>
+                                            <li><a href="javascript:void(0);" data-social="ln"><i class="iconmoon-linkedin"></i></a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="container">
+        <div class="single-project-details">
+
+			
+   <div class="text-image-normal">
+    <div class="text-normal">
+		<h2><strong>E-health in the home context</strong></h2>
+		<p> •  Facing challenges in having the senior patients remotely engage  them in self-tracking on their dietary goals during Telerehabilitation in using current mobile app (chatbot, Lifestyle dashboard functionality).</p>
+		<p> •  The project aims to create a scalable solution that could integrate into the current workflow of the stakeholders:
+			1. to make patients (end-users) easier follow their dietary goals in a sustainable way.
+			2. to make healthcare providers easier collect efficient and accurate data</p>
+
+
+    </div>
+    <div class="image-normal">
+		<div class="responsiveRapper">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/8XrBQiU77EM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>					
+        </div>
+	</div>
+</div>
+            
+<div class="row">
+   <div class="text-image-normal">
+    <div class="text-normal">
+		<h2><strong>Product Development Roadmap</strong></h2>
+		<p>As the only UX designer, I employed design thinking to identify problems with various stakeholders, domain experts, and users. Utilizing lean UX and agile methods, I collaborated with developers to create the working product for shippable increments.</p>
+
+    </div>
+    <div class="image-normal">
+        <img src="img/Project/FMP/Design process.jpg">
+		</div>
+	</div>
+		  <div class="col-md-8 col-sm-12">
+				  
+			<h2><strong>User Research &amp; Ideation (1.5 month)</strong>&nbsp;</h2> 
+	        <p>A dynamic research process was conducted, collaborating with different stakeholders along the way, depending on the needs in the proThis process included early-stage workshops, persona development, and value proposition discussions to identify valuable and feasible solutions within the timeframe. Eventually, through the various researches, a system approach - an interactive physical product with a digital UI was identified as the MVP.</p>
+		    <p><span style=" color:#34B8AF">Note:&nbsp;Kindly click on the navigation dots below to explore each step of the user research process.</span></p>
+      </div>
+</div>
+
+
+	
+
+
+
+<!-- User Research Carousel -->
+<div class="carousel-container" id="carousel1">
+  <input type="radio" name="carousel1" id="carousel1-slide1" checked>
+  <input type="radio" name="carousel1" id="carousel1-slide2">
+  <input type="radio" name="carousel1" id="carousel1-slide3">
+  <input type="radio" name="carousel1" id="carousel1-slide4">
+
+  <div class="carousel-slides">
+    <!-- Slide 1 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Step 1: Review & Discovery</h2>
+        <h3>Analytical review the challenges of the existing product and understand the expectations with business stakeholders.</h3>
+		  <p>• Identifying the collected variables (quantity, approach,, knowledge, information)</p>
+		  <p>• Grouping into phases within the context journey</p>
+		  <p>• Heuristic evaluation - severity rating</p>
+		  <p><span style=" color:#34B8AF">Note:&nbsp;Kindly click on the navigation dots below to explore each step of the user research process.</span></p>
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/UserResearch1-41.jpg">
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Step 2: User scenario - Empathy building</h2>
+        <h3>Collected information from the end-users interviews on the target Persona and their Tele-rehabilitation journey</h3>
+		  <p>• Interaction with the healthcare providers</p>
+		  <p>• User group, Motivation, Preference, Habits, Behaviors, Challenges</p>
+		  <p>• Researched the entire journey</p>
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/UserResearch2-24.jpg">
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Step 3: Value proposition & mapping</h2>
+        <h3>Host workshop to synthesize stakeholders opinions in the early stage</h3>
+		<p>• With over 7 stakeholders (business units & product team), workshops successfully integrate diverse opinions and ensure everyone's voice is heard.</p>
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/UserResearch3-41.jpg">
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Step 4: Defining the scope</h2>
+        <h3>Prioritized based on the business & technical Metrics with the product team.</h3>
+		  <h4>Phase 1: MVP </h4>
+		  <p><strong>• Personalized system approach - interactive physical product with digital UI</strong></p>
+		  <p>• Identified use case scenarios.</p>
+		  <p>• Physical product allows users to follow one goal each time</p>
+		<p>• The collected user data can be used in the mobile app</p>
+		  <h4>Phase 2: Extended critical information</h4>
+		  <p>• Integrated to key functionalities (Dashboard & Chatbot) </p>
+		  <h4>Phase 3: Long term</h4>
+		  <p>• Integrate the full digital rehabilitation program</p>
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/UserResearch4.jpg">
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Dots -->
+  <div class="carousel-nav">
+    <label for="carousel1-slide1" class="nav-dot"></label>
+    <label for="carousel1-slide2" class="nav-dot"></label>
+    <label for="carousel1-slide3" class="nav-dot"></label>
+    <label for="carousel1-slide4" class="nav-dot"></label>
+  </div>
+</div>
+
+	
+<div class="row">
+
+		  <div class="col-md-8 col-sm-12">
+				  
+			<h2><strong>Product Development Lifecycle (3.5 month)</strong></h2> 
+	        <p>A dynamic research process was conducted, collaborating with different stakeholders along the way. This process included early-stage workshops, persona development, and value proposition discussions to identify valuable and feasible solutions within the timeframe. Eventually, through the various researches, a system approach - an interactive physical product with a digital UI was identified as the MVP.</p>
+	        <p>&nbsp;</p>
+			<h3>Step 5: Service Blue Printing - Research the Ecosystem and patient journey </h3>
+			<p>Outlining the entire user journey and integrating the IoT solutions</p>
+	  </div>
+
+				<div class="single-project-images">
+
+          <img src="img/Project/FMP/upgraded/User journey-42.jpg">
+			
+        	 </div>	
+
+
+</div>
+			
+			
+<!--IAWireframing carousel -->	
+<div class="carousel-container" id="carousel4">
+  <input type="radio" name="carousel4" id="carousel4-slide1" checked>
+  <input type="radio" name="carousel4" id="carousel4-slide2">
+  <input type="radio" name="carousel4" id="carousel4-slide3">
+
+
+  <div class="carousel-slides">
+    <!-- Slide 1 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Step 6: System workflow &amp; Information architecture</h2>
+		 <h3>Embedded IoT solution to the front-end journey and system integration</h3>
+        <p>• Investigated the current infrastructure.</p>
+		<p>• Explored the opportunity to integrate the physical product into everyday life settings and digital solutions to not only monitor behaviors but transfer data.</p>
+		  
+		  <p><span style=" color:#34B8AF">Note:&nbsp;Kindly click on the navigation dots below to explore the iterative process.</span></p>
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/SystemChart-43.jpg">
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Step 7: Low-fidelity wireframing & Concept testing</h2>
+		 <h3>Initially validated with the key user groups to identify the best possible solutions</h3>
+        <p>Recruited 5 participants (target audiences) in applying speak-out-loud approach.</p>
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/PoC-44.jpg">
+      </div>
+    </div>
+	  
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Step 7: Interactive mock-up & Concept testing</h2>
+
+        <p>Combined with the User interface AB testing (mentioned in the previous page), evaluated user interaction between the physical device and the target audiences by deploying the mock-up prototype in context, where participants were asked to document their daily entries regarding their target dietary experiences.</p>
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/PoC2-44.jpg">
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Navigation Dots -->
+  <div class="carousel-nav">
+    <label for="carousel4-slide1" class="nav-dot"></label>
+    <label for="carousel4-slide2" class="nav-dot"></label>
+    <label for="carousel4-slide3" class="nav-dot"></label>
+
+
+  </div>
+</div>
+
+	
+<!--HifiPrototype carousel -->				
+<div class="carousel-container" id="carousel5">
+  <input type="radio" name="carousel5" id="carousel5-slide1" checked>
+  <input type="radio" name="carousel5" id="carousel5-slide2">
+
+
+  <div class="carousel-slides">
+    <!-- Slide 1 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Step 8: High-fidelity prototyping</h2>
+        <p>After refinement from the previous design iteration, a high-fidelity prototype was built to visualize the entire UX.</p>
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/Hifi-43.jpg">
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Design system extension</h2>
+        <p>The added components have been integrated into the current design system for scalable use.</p>
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/Hifi2-44.jpg">
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Navigation Dots -->
+  <div class="carousel-nav">
+    <label for="carousel5-slide1" class="nav-dot"></label>
+    <label for="carousel5-slide2" class="nav-dot"></label>
+
+  </div>
+</div>
+
+<div class="row">
+	  <div class="col-md-8 col-sm-12">
+				  
+			<h2><strong>Interactive Product Developement</strong>&nbsp;</h2> 
+	        <p> Within 2 design sprint (2 weeks each) I worked with 2 technical developers (1 hardware and 1 software engineer) in realizing technical feasible functionality. Design sprints were planned, and prioritized based on the user needs, time that is required for experiment.</p>
+		    <p><span style=" color:#34B8AF">Note:&nbsp;Kindly click on the navigation dots below to explore each step of the user research process.</span></p>
+      </div>
+</div>
+
+			
+
+
+	
+
+
+<!--Development carousel -->				
+<div class="carousel-container" id="carousel2">
+  <input type="radio" name="carousel2" id="carousel2-slide1" checked>
+  <input type="radio" name="carousel2" id="carousel2-slide2">
+  <input type="radio" name="carousel2" id="carousel2-slide3">
+  <input type="radio" name="carousel2" id="carousel2-slide4">
+
+  <div class="carousel-slides">
+    <!-- Slide 1 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Step 9: Proof-of-concept technical testing</h2>
+        <p>• Refined real-time interaction and stability (6 types).</p>
+		  
+		<p>• Based on the defined interaction, built the system archtecture realized in C++</p>
+		 
+        <p>• Ensured that sensor data can be stored and visualized on mobile app for tracking the user behavior data</p>
+		  
+		<p><span style=" color:#34B8AF">Note:&nbsp;Kindly click on the navigation dots below to explore each step of the user research process.</span></p>
+        
+
+
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/Dev1-41.jpg">
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Design sprint planning - User bahavior & system interaction</h2>
+        <p>Explored the user behavior in the context and the required system interaction that deliverd various meaningful messages to the users in the context</p>
+
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/Dev3-41.jpg">
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Design sprint planning - System feedback </h2>
+        <p>Investigated the efficent weight-changed detected methods to provide real-time feedback to the user. </p>
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/Dev4-41.jpg">
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="carousel-item">
+      <div class="text-section">
+        <h2>Design sprint planning - Deployment </h2>
+        <p>As a deployable method in the home context, the look and feel is important for the senior user groups.</p>
+      </div>
+      <div class="image-section">
+        <img src="img/Project/FMP/upgraded/Dev2-41.jpg">
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Dots -->
+  <div class="carousel-nav">
+    <label for="carousel2-slide1" class="nav-dot"></label>
+    <label for="carousel2-slide2" class="nav-dot"></label>
+    <label for="carousel2-slide3" class="nav-dot"></label>
+    <label for="carousel2-slide4" class="nav-dot"></label>
+  </div>
+</div>
+
+	
+		
+   <div class="text-image-normal">
+    <div class="text-normal">
+		<h2><strong>Step 10: Implementation, Validation & Effectiveness tracking</strong></h2>
+		<p>After the deployable system product was built, we determined the critical success metric and setup the validation experiment. The focused validation are: </p>
+		<p>• User satisfaction & engagement (short-term/long-term scenarios)</p>
+		<p>• Use case in using both mobile app & physical product in tracking dietary behaviors</p>
+		<p>• Personalization opportunity</p>
+	
+		
+
+    </div>
+    <div class="image-normal">
+        <img src="img/Project/FMP/upgraded/demo-47.jpg">
+		</div>
+	</div>		
+			
+   <div class="text-image-normal">
+    <div class="text-normal">
+		<h2><strong>Step 11: Launch & Data analysis</strong></h2>
+		<p>The critical success metric revealed the fact that the confidence rate in following an optimal healthy behavior increases by 21% via a pre-& post survey and 3-day-in-the wield implemenation.</p>
+
+    </div>
+    <div class="image-normal">
+        <img src="img/Project/FMP/upgraded/DataAnalysis-45.jpg">
+		</div>
+	</div>	
+								
+
+
+            <div class="col-md-6 col-sm-12">
+	  
+			<h2>Usability testing on the criteria</h2>
+			<p>For the usability testing on UI, I invited five participants who had previously engaged in the home-deployment iteration to continue evaluating their experiences using the digital UI. The aim of the study was to assess how users recognized the connection between user data visualization and digital guidance through the telerehabilitation journey.&nbsp;By gathering insights from the study, we were able to identify areas where the digital UI could be improved to better support users in their telerehabilitation journey. </p>
+			<p>The qualitative user feedback showed that all participants were comfortable using the design solutions to achieve their dietary goals.However, (the challenge 4) the lifestyle dashboard features show some hierarchy and visual improvement room to make it easier for seniors to access feedback</p>	
+			</div>
+			
+			
+				    
+              <div class="col-md-6 col-sm-6">
+				<video width="400" controls>
+				  <source src="img/Project/FMP/proto1.mp4" type="video/mp4">
+				  <source src="mov_bbb.ogg" type="video/ogg">
+				</video>
+              
+					<p style="font-size: 10x; line-height: 18px; color: #87cab2">Challenge 1: To investigate how well users can select the specified telerehabilitation domain(s), individual goal(s), and recognizing the specified the sensing tools and services. 
+                 </p>
+
+                </div>	
+
+				  
+               <div class="col-md-6 col-sm-6">
+				<video width="400" controls>
+				  <source src="img/Project/FMP/proto2.mp4" type="video/mp4">
+				  <source src="mov_bbb.ogg" type="video/ogg">
+				</video>
+              
+					<p style="font-size: 10x; line-height: 18px; color: #87cab2">Challenge 2:To learn how the users would think of/take the automatic suggestions (database) based on personalized profile</p>
+
+                </div>	
+				  
+               <div class="col-md-6 col-sm-6">
+				<video width="400" controls>
+				  <source src="img/Project/FMP/proto3.mp4" type="video/mp4">
+				  <source src="mov_bbb.ogg" type="video/ogg">
+				</video>
+              
+					<p style="font-size: 10x; line-height: 18px; color: #87cab2">Challenge 3:To understand how user can recognize and do the installation through digital guidance at home</p>
+
+                </div>	
+				  
+				  
+               <div class="col-md-6 col-sm-6">
+				<video width="400" controls>
+				  <source src="img/Project/FMP/proto4.mp4" type="video/mp4">
+				  <source src="mov_bbb.ogg" type="video/ogg">
+				</video>
+              
+					<p style="font-size: 10x; line-height: 18px; color: #87cab2">Challenge 4:To explore how users can connect to the data shown on the dashboard for self-reflection, and the interactive ways with chatbot</p>
+
+                </div>
+				  
+               <div class="col-md-6 col-sm-6">
+				<video width="400" controls>
+				  <source src="img/Project/FMP/proto5.mp4" type="video/mp4">
+				  <source src="mov_bbb.ogg" type="video/ogg">
+				</video>
+              
+					<p style="font-size: 10x; line-height: 18px; color: #87cab2">Challenge 5:To explore how users would identify the integration with different telerehabilitation activities on the digital platform</p>
+
+                </div>
+				  
+				  
+			  </div>
+				
+
+		    <div class="col-md-12 col-sm-12">
+	
+				
+              <div class="col-md-6 col-sm-12">
+			  <h2><strong>Demonstrator </strong>&nbsp;</h2>  
+	
+			  <p>Based on the feedback and insights from the final
+				iteration results, I created a new fruit bowl by 3D printing
+				it in translucent material, making it more aesthetically
+				pleasing. The translucent/transparent material allows
+				the interactive light to pass through from any angle.
+			    </p>
+				  
+			  
+
+				  
+		</div>
+		</div>
+				
+
+              <div class="col-md-6 col-sm-12">
+				  
+			  <div class="single-project-images">
+                <img src="img/Project/FMP/demo-02.jpg">
+
+
+           	  </div>
+           	  </div>
+				
+              <div class="col-md-6 col-sm-12">
+				  
+			  <div class="single-project-images">
+                <img src="img/Project/FMP/demo-03.jpg">
+
+
+           	  </div>
+           	  </div>
+
+				  
+
+
+
+          </div>
+              <div class="col-md-12 col-sm-12">
+
+				
+              <div class="col-md-6 col-sm-12">
+
+				<h2>Learning & Takeaway</h2>
+				<p>This Master Thesis Project was built upon <span style=" color:#34B8AF">the current architecture of the telerehabilitation system structured by Maxima MC, integrating the touchpoints with the healthcare providers from a patient-centered perspective.</span> The final results of the project were presented to the client and stakeholders for the potential of real-world executions. This project allowed me to acquire valuable learnings:</p>
+				<p>&nbsp;</p>
+			  </div>
+			</div>
+				
+              <div class="col-md-6 col-sm-12">
+				  
+				  
+				<h5>Project management skills to work with involved stakeholders. </h5>
+				<p>Because the project involved many stakeholders (clients, domain experts, and users), I learned the importance of <span style=" color:#34B8AF">advance planning and efficient communication with different parties for scheduling sessions and time management skills.</span> In this project, I created a roadmap to file all the decision-making points and the time spent.</p>
+				<p>&nbsp;</p>
+				<h5>Design communication is important when presenting the design concept to stakeholders.&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </h5>
+				<p>Furthermore, to be more flexible during the iterative process of working with stakeholders, <span style=" color:#34B8AF">making planning and sharing (discussion) results properly is critical in communication and project management. Preparing alternatives (plan B) to adapt/pivot to different situations.</span> Whereas, it is always important for a designer you could advocate why the design decision is better than other choices.&nbsp;</p>
+				<p>&nbsp;</p>
+				  			  
+
+				<h5>MVPs are the balance of the user's needs and technical constraints within the limited timeframe. </h5>
+				<p>I spent weeks with developers in the organization to experiment/test the stability and the effectiveness of the prototype, from which I learned the importance of <span style=" color:#34B8AF">identified efficient MVPs to process the iterative development is built open prioritizing user requirements and balancing out the design increments with various technical constraints</span> within a limited time frame.</p>
+				<p>&nbsp;</p>
+			  </div>
+              <div class="col-md-6 col-sm-12">
+
+				<h5>Design thinking asks for stakeholders' continuous involvement.</h5>
+				<p>The methods of <span style=" color:#34B8AF">workshops and post-co-reflecting sessions to criticize the design from different perspectives</span> can bring the design concept to a more grounded and realistic level for execution not only building the confidence of the teammates but the stakeholders</p>
+				<p>&nbsp;</p>
+				<h5>Challenge when designing for the systematic approach (combined with tangible and digital UI) in complex scenarios: </h5>
+				<p>The combined tangible and digital approach were proven effective and had strong potential for the target patient groups, where different levels of interaction were involved to motivate the user groups to follow the target diet goals. However, despite the entire telerehabilitation structure within the design concept being discussed with different domain experts, one of the challenges that should be further evaluated with user groups is <span style=" color:#34B8AF">the longer-term scenario when several telerehabilitation domains are simultaneously executed so that the way to interact and the information to be presented can be investigated and prioritized to avoid the overwhelming information. 
+				As a service, prioritizing the functionalities with more impact or less effort on the experience could add value on a personalized level.</span></p>
+				  
+			</div>
+	        </div>
+
+
+    <div class="container">
+        <div class="portfolio-controls">
+            <div class="btn-project home-btn">
+                <a href="index.html" data-hover="Home">
+                    <i class="pe-7s-keypad"></i>
+                </a>
+            </div>
+            <div class="btn-project forward-btn">
+                <a href="Portfolio-ecommerce.html" data-hover="Next">
+                    <i class="pe-7s-angle-right right"></i>
+                </a>
+            </div>
+            <div class="btn-project back-btn">
+                <a href="Portfolio-AppDesign.html" data-hover="Previous">
+                    <i class="pe-7s-angle-left left"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="footer margin-top">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-2 col-sm-4 col-xs-12">
+                        <div class="footer-inner">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-md-push-8 col-sm-4 col-xs-12">
+                        <div class="footer-inner">
+                            <div class="footer-content">
+                               <h4>CONTACT INFO</h4>
+                                <p>
+                                    T:+31623618403 <br>
+                                    E:Sophie8441@gmail.com <br>
+									Github:https://github.com/Sophie8441 <br>
+          
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="footer-inner">
+                            <div class="footer-content">
+                            <ul class="social-media">
+
+<!--                                <li><a href="#"><i class="iconmoon-linkedin2"></i></a></li>-->
+                            </ul>
+                            <span class="copyright-mark">&copy; 2022 Tzu-Jou Huang,<br>
+                            Designed and Coded by hand</span>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="javascript:void(0)" class="scroll-top" id="scroll-top"><i class="pe-7s-angle-up"></i></a>
+
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
+    <script data-pace-options='{ "ajax": false }' src="js/vendor/pace.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/classie.js"></script>
+    <script src="js/vendor/isotope.pkgd.min.js"></script>
+    <script src="js/vendor/jquery.velocity.min.js"></script>
+    <script src="js/vendor/jquery.kenburnsy.min.js"></script>
+    <script src="js/vendor/textslide.js"></script>
+    <script src="js/vendor/imagesloaded.pkgd.min.js"></script>
+    <script src="js/vendor/tabs.js"></script>
+    <script src="js/ef-slider.js"></script>
+    <script src="js/vendor/owl.carousel.min.js"></script>
+    <script src="js/vendor/jquery.magnific-popup.min.js"></script>
+    <script src="js/vendor/jquery.social-buttons.min.js"></script>
+    <script src="js/vendor/wow.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/ajax.js"></script>
+
+
+</body>
+
+</html>
